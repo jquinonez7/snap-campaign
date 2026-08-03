@@ -46,6 +46,7 @@ export default function HomeScreen() {
       <StatusBar barStyle="dark-content" backgroundColor="#ffffff" />
 
       <ScrollView
+        style={styles.scrollView}
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
@@ -57,8 +58,6 @@ export default function HomeScreen() {
             resizeMode="contain"
             accessibilityLabel="Snapped at EDC"
           />
-
-        
         </View>
 
         {/* Interactive map */}
@@ -68,7 +67,7 @@ export default function HomeScreen() {
               source={require("./assets/edc-map.png")}
               style={styles.map}
               imageStyle={styles.mapImage}
-              resizeMode="cover"
+              resizeMode="contain"
             >
               {FRIENDS.filter(
                 (friend) => !["alex", "jess"].includes(friend.id)
@@ -128,10 +127,7 @@ export default function HomeScreen() {
         </View>
       </ScrollView>
 
-      <InfoCard
-        location={selected}
-        onClose={() => setSelected(null)}
-      />
+      <InfoCard location={selected} onClose={() => setSelected(null)} />
     </SafeAreaView>
   );
 }
@@ -139,44 +135,36 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   safe: {
     flex: 1,
+    width: "100%",
     backgroundColor: "#ffffff",
   },
 
+  scrollView: {
+    flex: 1,
+    width: "100%",
+  },
+
   scrollContent: {
+    width: "100%",
     paddingBottom: 24,
   },
 
   heroText: {
+    width: "100%",
     paddingHorizontal: 20,
     paddingTop: 12,
     paddingBottom: 14,
   },
 
-titleImage: {
-  width: 140,
-  height: 65,
-  alignSelf: "flex-start",
-  marginLeft: -8,
-},
-headline: {
-  color: "#313131",
-  fontSize: 10,
-  fontFamily: "Avenir Next",
-  fontWeight: "600",
-  marginTop: 4,
-  textAlign: "center",
-},
-
-  subhead: {
-    color: "#7e7979",
-    fontSize: 14,
-    fontFamily: "Avenir Next",
-    fontWeight: "500",
-    lineHeight: 20,
-    marginTop: 8,
+  titleImage: {
+    width: 140,
+    height: 65,
+    alignSelf: "flex-start",
+    marginLeft: -8,
   },
 
   mapSection: {
+    width: "100%",
     paddingHorizontal: 16,
   },
 
@@ -189,10 +177,13 @@ headline: {
   },
 
   map: {
-    flex: 1,
+    width: "100%",
+    height: "100%",
   },
 
   mapImage: {
+    width: "100%",
+    height: "100%",
     borderRadius: 24,
   },
 
@@ -206,6 +197,7 @@ headline: {
   },
 
   featuresSection: {
+    width: "100%",
     marginTop: 24,
   },
 
@@ -219,12 +211,14 @@ headline: {
   },
 
   ctaContainer: {
+    width: "100%",
     paddingHorizontal: 24,
     paddingTop: 24,
   },
 
   primaryButton: {
-    backgroundColor: "#FFFC00",
+    width: "100%",
+    backgroundColor: "#fffc00",
     borderRadius: 999,
     paddingVertical: 16,
     alignItems: "center",

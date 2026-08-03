@@ -67,7 +67,7 @@ export default function HomeScreen() {
               source={require("./assets/edc-map.png")}
               style={styles.map}
               imageStyle={styles.mapImage}
-              resizeMode="contain"
+              resizeMode="cover"
             >
               {FRIENDS.filter(
                 (friend) => !["alex", "jess"].includes(friend.id)
